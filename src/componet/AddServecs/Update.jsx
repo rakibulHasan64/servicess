@@ -49,6 +49,8 @@ function Update() {
          userEmail,
          userName,
       };
+      console.log(updatedData);
+      
 
       
 
@@ -126,11 +128,11 @@ function Update() {
                         onChange={handleFieldChange}
                      >
                         <option value="">Select a Service</option>
-                        <option value="cloud-hosting">AC SERVICE</option>
-                        <option value="video-production">Delivery Service</option>
-                        <option value="bookkeeping">Toor Service</option>
-                        <option value="research">Electronics Service</option>
-                        <option value="proofreading-editing">Editing Service</option>
+                        <option value="Web Design">Web Design</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Social Media Marketing">Social Media Marketing</option>
+                        <option value="UI/UX Design">UI/UX Design</option>
+                        <option value="SEO">SEO</option>
                      </select>
                   </div>
 

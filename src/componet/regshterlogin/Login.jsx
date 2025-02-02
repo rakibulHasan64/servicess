@@ -3,6 +3,7 @@ import { AuthContext } from "../../context";
 import { useContext } from "react";
 import Swal from "sweetalert2";
 
+
 function Login() {
    const { signIn, signInWithGoogle } = useContext(AuthContext);
    const navigate = useNavigate();
@@ -33,10 +34,14 @@ function Login() {
    };
 
 
+   
+
+
 
    const handleSubmit = async (e) => {
       e.preventDefault();
 
+      
       const formData = new FormData(e.target);
       const datas = Object.fromEntries(formData);
       const { email, password } = datas;
@@ -44,7 +49,7 @@ function Login() {
       console.log(datas);
 
       try {
-         await signIn(email, password);
+         await signIn(email, password,);
          // Using sweetalert for success
          Swal.fire({
             icon: 'success',

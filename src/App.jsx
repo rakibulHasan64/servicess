@@ -12,6 +12,8 @@ import ErrorPage from "../ErrorPage";
 import SingleDetailsPage from "./singlePage/SingleDetailsPage";
 import Update from "./componet/AddServecs/Update";
 
+// import MyPostServices from "./componet/myservicess/MyPostServices";
+
 function App() {
   return (
     <>
@@ -24,6 +26,7 @@ function App() {
           <Route path="ManageService" element={<AllManeage />} />
           <Route path="Update/:id" element={<Update />} />
           <Route path="singlePage/:id" element={<SingleDetailsPage />} />
+         {/* <Route path="mypost" element={<MyPostServices/>} />  */}
 
           <Route
             path="Addservices"

@@ -1,5 +1,4 @@
-import { FaLocationDot, FaPhoneFlip } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -7,13 +6,13 @@ import "aos/dist/aos.css";
 function Contact() {
    useEffect(() => {
       AOS.init({
-         duration: 1000, // Animation duration
-         once: true, // Trigger the animation once
+         duration: 1000, 
+         once: true, 
       });
    }, []);
 
    return (
-      <div className="font-[sans-serif] max-w-6xl mx-auto relative bg-white rounded-lg py-6">
+      <div className="font-[sans-serif] max-w-6xl mx-auto relative bg-white shadow-2xl rounded-lg py-6 p-4 sm:p-3">
          <div className="grid lg:grid-cols-3 items-center">
             <div className="grid grid-cols-2 gap-4 z-20 relative lg:left-16 max-lg:px-4">
                <div className="flex flex-col items-center justify-center rounded-lg w-full h-44 p-4 text-center bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)]">

@@ -13,24 +13,24 @@ function Register() {
 
    const handleSubmit = async (e) => {
       e.preventDefault();
-      const formData = new FormData(e.target); 
-      const datas = Object.fromEntries(formData); 
-      const { name, email, password: pass, photoUrl: photo } = datas; 
+      const formData = new FormData(e.target);
+      const datas = Object.fromEntries(formData);
+      const { name, email, password: pass, photoUrl: photo } = datas;
 
       console.log(datas);
 
       try {
-      
-         const result = await createUser(email, pass); 
+
+         const result = await createUser(email, pass);
          console.log(result);
 
-         
+
          await updateUserProfile(name, photo);
 
-         
-         setUser({ ...result.user, photoURL: photo, displayName: name });
 
-      
+         setUser({ ...result.user, photoURL: photo, displayName: name, role: "user" });
+
+
          Swal.fire({
             icon: 'success',
             title: 'Signup সফল হয়েছে!',
@@ -39,13 +39,13 @@ function Register() {
             timer: 1500,
          });
 
-      
+
          navigate('/');
 
       } catch (err) {
          console.log(err);
 
-         
+
          Swal.fire({
             icon: 'error',
             title: 'কিছু ভুল হয়েছে',

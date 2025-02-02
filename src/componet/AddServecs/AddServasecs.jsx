@@ -3,10 +3,11 @@ import axios from "axios";
 import { AuthContext } from "../../context";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"; // datepicker এর স্টাইল
+import { useNavigate } from "react-router-dom";
 
 function AddService() {
    const { user } = useContext(AuthContext);
-
+   const nagvate = useNavigate();
    const [startDate, setStartDate] = useState(null); // ডেট স্টেট
    const [message, setMessage] = useState('');
 
@@ -14,27 +15,30 @@ function AddService() {
       e.preventDefault();
 
       const formData = new FormData(e.target);
-
       const serviceData = {
-         
          serviceName: formData.get("serviceName"),
          serviceImage: formData.get("serviceImage"),
-         price: formData.get("price"),
+         price: parseFloat(formData.get("price")),  // Ensure it's a number
+         byer: {
+            userName: user?.displayName || "Unknown",
+            userEmail: user?.email || "Unknown",
+            userPhoto: user?.photoURL || "",
+         },
          serviceArea: formData.get("serviceArea"),
          description: formData.get("description"),
-         deadline: startDate, 
-         userName: user?.displayName || "Unknown",
-         userEmail: user?.email || "Unknown",
-         userPhoto: user?.photoURL || "",
+         deadline: new Date(formData.get("deadline")),  // Ensure it's a Date object
       };
-      console.log(serviceData);
+
+   
+   
       
 
       axios.post(`${import.meta.env.VITE_API_URL}/servic`, serviceData)
          .then((response) => {
             console.log('Service Added:', response.data);
             setMessage("Service successfully added!");
-            e.target.reset(); // ✅ ফর্ম রিসেট করে দেওয়া
+            e.target.reset(); 
+            nagvate("/AllService")
          })
          .catch((error) => {
             console.error('Error adding service:', error);
@@ -75,12 +79,13 @@ function AddService() {
                      required
                   >
                      <option value="">Select a Service</option>
-                     <option value="cloud-hosting">AC SERVICE</option>
-                     <option value="video-production">Delivery Service</option>
-                     <option value="bookkeeping">Toor Service</option>
-                     <option value="research">Electronics Service</option>
-                     <option value="proofreading-editing"> Editing Service</option>
+                     <option value="Web Design">Web Design</option>
+                     <option value="Digital Marketing">Digital Marketing</option>
+                     <option value="Social Media Marketing">Social Media Marketing</option>
+                     <option value="UI/UX Design">UI/UX Design</option>
+                     <option value="SEO">SEO</option>
                   </select>
+
                </div>
 
 
@@ -123,7 +128,7 @@ function AddService() {
                <div className="mb-4 flex flex-col gap-2">
                   <label className="text-gray-700">Deadline</label>
                   <DatePicker
-                     className="shadow-xl shadow-blue-200 text-black text-sm tracking-wider font-medium outline-none border border-blue-600 active:shadow-inner p-2 rounded-md"
+                     className="shadow-xl shadow-blue-200 text-red-500 text-sm tracking-wider font-medium outline-none border border-blue-600 active:shadow-inner p-2 rounded-md"
                      selected={startDate}
                      onChange={(date) => setStartDate(date)}
                      name="deadline"

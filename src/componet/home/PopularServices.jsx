@@ -7,33 +7,39 @@ function PopularServices() {
    const services = [
       {
          id: 1,
-         name: "নিগরানি সেবা",
-         image: "https://www.easterslock.com/wp-content/uploads/2022/06/Video-Surveillance.jpg",
+         name: "Web Design",
+         image: "https://cdn.pixabay.com/photo/2016/09/14/08/26/web-1668928_640.png",
+         cat:"Web Design"
       },
       {
          id: 3,
-         name: "প্রতারণা তদন্ত",
-         image: "https://asginvestigations.com/wp-content/uploads/2021/08/Fraud-Investigation.jpg",
+         name: "Digital Marketing",
+         image: "https://cdn.pixabay.com/photo/2024/03/13/07/41/digital-marketing-8630397_1280.png",
+         cat: "Digital Marketing"
       },
       {
          id: 4,
-         name: "সাইবার সিকিউরিটি",
-         image: "https://www.digitalforensics.com/images/cyber-security.jpg",
+         name: "SEO",
+         image: "https://cdn.pixabay.com/photo/2020/08/24/05/43/search-engine-5512814_640.jpg",
+         cat: "SEO"
       },
       {
          id: 5,
-         name: "আইনি সহায়তা",
-         image: "https://www.globalinvestigations.co.uk/wp-content/uploads/2020/01/Legal-Support.jpg",
+         name: "Social Media Marketing",
+         image: "https://cdn.pixabay.com/photo/2019/09/09/08/23/internet-4463031_1280.jpg",
+         cat: "Social Media Marketing"
       },
       {
          id: 6,
-         name: "ফরেনসিক হিসাবরক্ষণ",
-         image: "https://media.istockphoto.com/id/1171446282/photo/spreadsheet-table-paper-with-pencil-finance-development-banking-account-statistics-investment.jpg?s=612x612&w=0&k=20&c=QFU_Dj1XycaKdqfokhRPauc9RV2iog2TUW4iKNcoHqs=",
+         name: "graphic design",
+         image: "https://img.freepik.com/free-vector/graphic-designer-isometric-landing-page-banner_107791-2564.jpg?uid=R163698922&ga=GA1.1.1899974975.1726507053&semt=ais_hybrid_sidr",
+         cat: "graphic design"
       },
       {
          id: 7,
-         name: "নিখোঁজ ব্যক্তির অনুসন্ধান",
-         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfD__pWjLTKjBRLsz2qXdbDDtR2c9c7w8FEg&s",
+         name: "UI/UX Design",
+         image: "https://cdn.pixabay.com/photo/2024/06/13/11/54/ui-8827392_1280.jpg",
+         cat: "UI/UX Design"
       },
    ];
 
@@ -49,7 +55,7 @@ function PopularServices() {
          <div className="bg-[#F5F9FF] dark:bg-black">
             <div className="container mx-auto py-16">
                <h3 className="text-center dark:text-white text-[#0E1336] text-4xl sm:text-6xl" data-aos="fade-up">
-                  Discover Our <span className="text-[#5965E7]">latest offers</span>
+                  populer services
                </h3>
                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 py-12 p-4 sm:p-3 mt-16">
                   {

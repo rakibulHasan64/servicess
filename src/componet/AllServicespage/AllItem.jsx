@@ -24,20 +24,24 @@ function AllItem({ item }) {
 
             </div>
 
-            <div className="px-6 py-4 flex justify-between items-center">
+            <div className="px-6 py-4 sm:flex justify-between items-center">
                <div className="flex items-center">
-               
-                  <img className="w-10 h-10 rounded-full mr-4" src={item.userPhoto} alt={item.userName} />
+                  {/* Provider Image */}
+                  <img
+                     className="w-12 h-12 rounded-full mr-4"
+                     src={item?.byer?.userPhoto || "https://via.placeholder.com/48"}
+                     alt={item?.byer?.userName || "Unknown User"}
+                  />
                   <div className="text-sm">
-
-                     <p className="text-gray-900 leading-none">{item.userName}</p>
-                  
-                     <p className="text-gray-600">{item.userEmail}</p>
+                     <p className="font-semibold text-gray-900 ">{item?.byer?.userName || "Unknown"}</p>
+                     {/* Email (optional) */}
+                     <p className="text-gray-600 ">{item?.byer?.userEmail || "Not Provided"}</p>
                   </div>
                </div>
-         
-               <div className="text-lg font-bold">৳{item.price}</div>
+               {/* Service Price */}
+               <div className="text-xl font-bold text-blue-600 ">৳{item?.price || "N/A"}</div>
             </div>
+
 
             <div className="px-6 py-4 mb-3 text-center">
                <button className="rounded-xl shadow-2xl shadow-red-600 text-white bg-red-600 px-4 py-2 hover:bg-blue-700">

@@ -10,9 +10,9 @@ function ServicesItem({ item }) {
             data-aos="fade-up" // Add AOS animation on scroll
             data-aos-duration="1000" // Duration for the animation
          >
-            <img className="w-full shadow-[#5965E7]" src={item.image} alt="" />
-            <button className="absolute right-6 top-6 px-2 py-1 bg-[#FFFFFF] rounded-[6px]">
-               Co-Ownership
+            <img className="w-full shadow-[#5965E7] rounded-t-lg" src={item.image} alt="" />
+            <button className="absolute  right-6 top-6 px-2 py-1 bg-[#FFFFFF] rounded-[6px]">
+               {item.cat}
             </button>
             <div className="p-4">
                <h4 className="text-[26px] p-3">{item.name}</h4>

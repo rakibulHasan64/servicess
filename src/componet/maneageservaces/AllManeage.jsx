@@ -89,7 +89,7 @@ function AllManeage() {
                      <tr key={index} className="hover:bg-gray-50">
                         <td className="p-4 text-[15px] text-gray-800">{index + 1}</td>
                         <td className="p-4 text-[15px] text-gray-800">{service.serviceName}</td>
-                        <td className="p-4 text-[15px] text-gray-800">{service.userEmail}</td>
+                        <td className="p-4 text-[15px] text-gray-800">{service.byer.userEmail}</td>
                         <td className="p-4 text-[15px] text-gray-800">{service.price}</td>
                         <td className="p-4 text-[15px] text-gray-800">{service.userName}</td>
                         <td className="p-4">
