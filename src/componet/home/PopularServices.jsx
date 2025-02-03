@@ -63,7 +63,7 @@ function PopularServices() {
                         <ServicesItem
                            key={item.id}
                            item={item}
-                           data-aos="fade-right"
+                           data-aos="fade-up"
                            data-aos-delay={index * 200} // Stagger animation
                         />
                      ))

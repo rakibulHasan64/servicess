@@ -14,7 +14,7 @@ function Advantage() {
       <>
          <div className="bg-[#fff] dark:bg-gray-700 ">
             <div className="container mx-auto py-20">
-               <h2 className="text-center font-bold text-[35px] sm:text-[45px] md:text-[60px] p-3 sm:p-2 text-[#5965E7]" data-aos="fade-left">
+               <h2 className="text-center font-bold text-[35px] sm:text-[45px] md:text-[60px] p-3 sm:p-2 text-[#5965E7]" data-aos="fade-up">
                   The Advantages,<br />
                   <span className="text-black dark:text-white">Without the Disadvantages</span>
                </h2>

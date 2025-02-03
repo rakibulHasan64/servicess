@@ -21,7 +21,7 @@ function Customar() {
          <div className="container mx-auto py-20">
             {/* Header */}
             <div>
-               <h3 className="text-[70px] text-center font-bold dark:text-white" data-aos="fade-up">Frequently Asked Questions</h3>
+               <h3 className="text-4xl sm:text-[70px] text-center font-bold dark:text-white" data-aos="fade-up">Frequently Asked Questions</h3>
                <p className="text-center mt-3 text-[20px] font-bold dark:text-white" data-aos="fade-up" data-aos-delay="100">
                   Support - <span className=" text-red-600">FAQ</span>
                </p>

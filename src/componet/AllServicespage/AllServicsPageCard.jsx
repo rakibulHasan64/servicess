@@ -3,10 +3,13 @@ import AllItem from "./AllItem";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
+
+
 function AllServicesPageCard() {
+   
    const [filter, setFilter] = useState("");
 
-   const { data: services = [], isLoading, error, refetch } = useQuery({
+   const { data: services = [], isLoading, refetch } = useQuery({
       queryKey: ["services", filter],
       queryFn: async () => {
          const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-services`, {
@@ -44,7 +47,7 @@ function AllServicesPageCard() {
                </div>
             ) : (
                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 py-12 p-4 sm:p-3 mt-12">
-                  {services.map(item => (
+                  {services?.map(item => (
                      <AllItem key={item.id} item={item} />
                   ))}
                </div>

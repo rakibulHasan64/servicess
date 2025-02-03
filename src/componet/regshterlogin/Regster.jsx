@@ -3,6 +3,7 @@ import { AuthContext } from "../../context";
 
 import { useNavigate } from "react-router-dom";  // navigate হ্যান্ডল করতে
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 function Register() {
    const { signInWithGoogle, createUser, updateUserProfile, setUser } =
@@ -58,6 +59,12 @@ function Register() {
 
    return (
       <>
+         
+         <Helmet>
+            <meta charSet="utf-8" />
+            <title>Register</title>
+
+         </Helmet>
          <div className="container mx-auto py-20 bg-amber-100">
             <div className="w-1/2 mx-auto">
                <div className="flex justify-center items-center min-h-screen bg-gray-100">

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context";
 import Swal from "sweetalert2";
 
@@ -8,6 +8,7 @@ function OrderPage() {
    const { user } = useContext(AuthContext);
    const { id } = useParams();
    const [datas, setDatas] = useState();
+   const naveget = useNavigate();
 
    useEffect(() => {
       axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
@@ -45,6 +46,7 @@ function OrderPage() {
                confirmButtonText: "OK",
             });
 
+            naveget("/")
             e.target.reset();
          })
          .catch((error) => {

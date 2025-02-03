@@ -16,10 +16,10 @@ function Banner() {
    };
 
    return (
-      <div className="banner-container">
+      <div className="banner-container p-7">
          <Slider {...settings}>
-            <div className="bg-[#F6F9FC] dark:bg-gray-700 py-20">
-               <div className="container m-auto pt-[50px] pb-[120px] grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div className="bg-[#F6F9FC] dark:bg-gray-700 py-20 p-3">
+               <div className="container m-auto pt-[50px] pb-[120px] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-8 items-center">
                   <div className="w-full text-center sm:text-left">
                      <h3 className="text-3xl dark:text-white sm:text-4xl md:text-6xl font-bold">
                         Web Design
@@ -31,14 +31,14 @@ function Banner() {
                         Learn More
                      </Link>
                   </div>
-                  <div className="w-full text-center">
-                     <img className="max-w-full mx-auto" src='https://cdn.pixabay.com/photo/2018/02/16/10/23/web-3157323_640.jpg' />
+                  <div className="w-full text-center sm:text-left">
+                     <img className="max-w-full mx-auto w-full h-auto" src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdlYiUyMGRlc2lnbnxlbnwwfHwwfHx8MA%3D%3D" />
                   </div>
                </div>
             </div>
 
-            <div className="bg-[#F6F9FC] dark:bg-gray-700">
-               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div className="bg-[#F6F9FC] dark:bg-gray-700 p-3">
+               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 gap-5 items-center">
                   <div className="w-full text-center sm:text-left">
                      <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
                         Digital Marketing
@@ -46,18 +46,18 @@ function Banner() {
                      <p className="text-lg sm:text-xl mt-4 dark:text-gray-300">
                         Ensuring security and trust with in-depth analysis.
                      </p>
-                     <Link to="/" className="rounded-xl shadow-2xl shadow-[#0554F2] text-white bg-[#0554F2] py-3 px-6 inline-block mt-4 ">
+                     <Link to="/" className="rounded-xl shadow-2xl shadow-[#0554F2] text-white bg-[#0554F2] py-3 px-6 inline-block mt-4">
                         Learn More
                      </Link>
                   </div>
-                  <div className="w-full text-center">
-                     <img className="max-w-full mx-auto" src="https://cdn.pixabay.com/photo/2023/11/25/08/16/ai-generated-8411276_640.jpg" alt="Background Check" />
+                  <div className="w-full text-center sm:text-left">
+                     <img className="max-w-full mx-auto w-full h-auto" src="https://img.freepik.com/free-photo/map-lying-wooden-table_53876-105723.jpg?uid=R163698922&ga=GA1.1.1899974975.1726507053&semt=ais_hybrid" />
                   </div>
                </div>
             </div>
 
-            <div className="bg-[#F6F9FC] dark:bg-gray-700">
-               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div className="bg-[#F6F9FC] dark:bg-gray-700 p-3">
+               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 gap-5 items-center">
                   <div className="w-full text-center sm:text-left">
                      <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
                         UI/UX Design
@@ -69,15 +69,14 @@ function Banner() {
                         Learn More
                      </Link>
                   </div>
-                  <div className="w-full text-center">
-                     <img className="max-w-full mx-auto" src="https://images.unsplash.com/photo-1547119957-637f8679db1e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHVpJTIwdXh8ZW58MHx8MHx8fDA%3D" />
+                  <div className="w-full text-center sm:text-left">
+                     <img className="max-w-full mx-auto w-full h-auto" src="https://img.freepik.com/free-vector/gradient-ui-ux-elements-background_23-2149056159.jpg?semt=ais_hybrid" alt="UI/UX Design" />
                   </div>
                </div>
             </div>
 
-
-            <div className="bg-[#F6F9FC] dark:bg-gray-700">
-               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div className="bg-[#F6F9FC] dark:bg-gray-700 p-3">
+               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 gap-5 items-center">
                   <div className="w-full text-center sm:text-left">
                      <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
                         Social Media Marketing
@@ -89,18 +88,17 @@ function Banner() {
                         Learn More
                      </Link>
                   </div>
-                  <div className="w-full text-center">
-                     <img className="max-w-full mx-auto" src="https://cdn.pixabay.com/photo/2023/01/30/08/07/icon-7755079_640.jpg" />
+                  <div className="w-full text-center sm:text-left">
+                     <img className="max-w-full mx-auto w-full h-auto" src="https://cdn.pixabay.com/photo/2023/01/30/08/07/icon-7755079_640.jpg" alt="Social Media Marketing" />
                   </div>
                </div>
             </div>
 
-
-            <div className="bg-[#F6F9FC] dark:bg-gray-700">
-               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+            <div className="bg-[#F6F9FC] dark:bg-gray-700 p-3">
+               <div className="container m-auto pt-[120px] pb-[120px] grid grid-cols-1  sm:grid-cols-1 md:grid-cols-2 gap-5 items-center">
                   <div className="w-full text-center sm:text-left">
                      <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold dark:text-white">
-                        graphic design
+                        Graphic Design
                      </h3>
                      <p className="text-lg sm:text-xl mt-4 dark:text-gray-300">
                         Protect your digital assets with expert analysis.
@@ -109,8 +107,8 @@ function Banner() {
                         Learn More
                      </Link>
                   </div>
-                  <div className="w-full text-center">
-                     <img className="max-w-full mx-auto" src="https://cdn.pixabay.com/photo/2016/11/30/08/48/bedroom-1872196_1280.jpg" />
+                  <div className="w-full text-center sm:text-left">
+                     <img className="max-w-full mx-auto w-full h-auto" src="https://images.pexels.com/photos/326501/pexels-photo-326501.jpeg?auto=compress&cs=tinysrgb&w=600" />
                   </div>
                </div>
             </div>
