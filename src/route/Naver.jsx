@@ -88,7 +88,8 @@ function Navbar() {
                            <Link to="/Addservices" className="text-gray-600  hover:text-purple-600">Add Services</Link>
                            <li><Link to="/ManageService" className="block py-2 text-gray-600">Manage Service</Link></li>
                            <li><Link to="/Booked-Services" className="block py-2 text-gray-600">Booked Services</Link></li>
-                           <li><Link to="/signup" className="block py-2 text-gray-600">Services To-Do</Link></li>
+                           <li><Link to="/signup" className="block py-2 text-gray-600">Orders</Link></li>
+                           <li><Link to="/ServicesTo-Do" className="block py-2 text-gray-600">Services To-Do</Link></li>
                            <li><Link to="/mypost" className="block py-2 text-gray-600">MyPostServices</Link></li>
                         </ul>
                      </div>

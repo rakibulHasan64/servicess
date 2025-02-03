@@ -3,17 +3,22 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context";
 import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";  // Don't forget to import the CSS for DatePicker
 
 function OrderPage() {
    const { user } = useContext(AuthContext);
    const { id } = useParams();
+
    const [datas, setDatas] = useState();
-   const naveget = useNavigate();
+   const [deadline, setDeadline] = useState(null);  // State to store the selected deadline
+   const navigate = useNavigate();
 
    useEffect(() => {
       axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
          .then((res) => {
             setDatas(res.data);
+            console.log(res.data);
          })
          .catch((err) => {
             console.error("Error fetching service:", err);
@@ -30,6 +35,8 @@ function OrderPage() {
          address: e.target.address.value,
          price: e.target.price.value,
          serviceArea: e.target.serviceArea.value,
+         serviceName: e.target.serviceName.value,
+         deadline: deadline ? deadline.toISOString() : "",  // Include the selected deadline
       };
 
       console.log("Order Submitted:", orderDetails);
@@ -46,7 +53,7 @@ function OrderPage() {
                confirmButtonText: "OK",
             });
 
-            naveget("/")
+            navigate("/");
             e.target.reset();
          })
          .catch((error) => {
@@ -77,9 +84,31 @@ function OrderPage() {
                <input type="email" id="email" name="email" defaultValue={user?.email} readOnly className="mt-1 w-full border rounded p-2" required />
             </div>
 
+            {/* Service Name Field */}
+            <div className="mb-4">
+               <label htmlFor="serviceName" className="block text-gray-700">Service Name</label>
+               <input
+                  type="text"
+                  id="serviceName"
+                  name="serviceName"
+                  value={datas ? datas.serviceName : "Loading..."}
+                  readOnly
+                  className="mt-1 w-full border rounded p-2"
+                  required
+               />
+            </div>
+
             <div className="mb-4">
                <label htmlFor="price" className="block text-gray-700">Price</label>
-               <input type="number" id="price" name="price" defaultValue={datas?.price} readOnly className="mt-1 w-full border rounded p-2" required />
+               <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  value={datas ? datas.price : "Loading..."}
+                  readOnly
+                  className="mt-1 w-full border rounded p-2"
+                  required
+               />
             </div>
 
             <div className="mb-4">
@@ -101,6 +130,17 @@ function OrderPage() {
                   <option value="Sylhet">Sylhet</option>
                   <option value="Rajshahi">Rajshahi</option>
                </select>
+            </div>
+            <div className="mb-4 flex flex-col gap-2">
+               <label className="text-gray-700">Deadline</label>
+               <DatePicker
+                  className="shadow-xl shadow-blue-200 text-red-500 text-sm tracking-wfont-medium outline-none border border-blue-600 active:shadow-innerrounded-md"
+                  name="deadline"
+                  dateFormat="MMMM d, yyyy"
+                  selected={deadline}  // Set the selected date
+                  onChange={(date) => setDeadline(date)}  // Update state when a date is selected
+                  required
+               />
             </div>
 
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded w-full hover:bg-blue-600 transition duration-200">
