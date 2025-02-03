@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 function ServiceDetailsPage() {
+   
    const { id } = useParams(); // URL থেকে service ID নেওয়া
    const [service, setService] = useState(null); // সার্ভিস ডাটা স্টেট
    const [error, setError] = useState(null); // Error handle করার জন্য state
@@ -42,6 +43,7 @@ function ServiceDetailsPage() {
       );
    }
 
+   
    // ডেডলাইন ফরম্যাটিং
    const formattedDeadline = new Date(service.deadline).toLocaleDateString("en-GB", {
       day: "numeric",
@@ -176,28 +178,31 @@ function ServiceDetailsPage() {
                            <h1 className="text-3xl font-bold">৳{service?.price || "N/A"}</h1>
                            <span className="text-base">/service</span>
                         </div>
-
-                        <button
-                           type="button"
-                           className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
-                        >
-                           {/* কার্টে যোগ করার আইকন */}
-                           <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="shrink-0 mr-3 h-5 w-5"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth="2"
+                        
+                        <Link to={`/order/${service._id}`}>
+                           
+                           <button
+                              type="button"
+                              className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-gray-900 px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-gray-800"
                            >
-                              <path
-                                 strokeLinecap="round"
-                                 strokeLinejoin="round"
-                                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                              />
-                           </svg>
-                           confrom
-                        </button>
+                              {/* কার্টে যোগ করার আইকন */}
+                              <svg
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 className="shrink-0 mr-3 h-5 w-5"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor"
+                                 strokeWidth="2"
+                              >
+                                 <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                                 />
+                              </svg>
+                              order
+                           </button>
+                        </Link>
                      </div>
 
                      <ul className="mt-8 space-y-2">
@@ -244,7 +249,8 @@ function ServiceDetailsPage() {
                            <div className="flex items-center">
                            {/* Provider Image */}
                               <img
-                                 className="w-12 h-12 rounded-full mr-4"  
+                              className="w-12 h-12 rounded-full mr-4"  
+                              referrerPolicy="no-referrer"
                                   src={service?.byer?.userPhoto || "https://via.placeholder.com/48"}
                                  alt={service?.byer?.userName || "Unknown"}
                                         />

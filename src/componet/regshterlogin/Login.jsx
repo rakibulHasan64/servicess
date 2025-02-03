@@ -46,7 +46,7 @@ function Login() {
       const datas = Object.fromEntries(formData);
       const { email, password } = datas;
 
-      console.log(datas);
+      
 
       try {
          await signIn(email, password,);
@@ -57,7 +57,7 @@ function Login() {
             showConfirmButton: false,
             timer: 1500
          });
-         navigate(from, { replace: true });
+         navigate("/");
       } catch (err) {
          console.log(err);
          // Using sweetalert for error

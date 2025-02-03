@@ -12,11 +12,13 @@ import ErrorPage from "../ErrorPage";
 import SingleDetailsPage from "./singlePage/SingleDetailsPage";
 import Update from "./componet/AddServecs/Update";
 
-// import MyPostServices from "./componet/myservicess/MyPostServices";
+ import MyPostServices from "./componet/myservicess/MyPostServices";
+import OrderPage from "./provider/OrderPage";
+import OrderDetails from "./provider/OrderDateils";
 
 function App() {
   return (
-    <>
+    <>                
       <Routes>
         <Route path="/" element={<AllOutlate />}>
           <Route path="/register" element={<Regster />} />
@@ -26,7 +28,9 @@ function App() {
           <Route path="ManageService" element={<AllManeage />} />
           <Route path="Update/:id" element={<Update />} />
           <Route path="singlePage/:id" element={<SingleDetailsPage />} />
-         {/* <Route path="mypost" element={<MyPostServices/>} />  */}
+          <Route path="mypost" element={<MyPostServices />} />   
+          <Route path="order/:id" element={<OrderPage />} />   
+          <Route path="signup" element={<OrderDetails />} />   
 
           <Route
             path="Addservices"

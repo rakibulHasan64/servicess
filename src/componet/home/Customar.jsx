@@ -37,12 +37,16 @@ function Customar() {
                <div className="grid md:grid-cols-1 gap-5 text-2xl">
                   {[
                      "Are there any special discounts or promotions available during the event?",
+                     " What are the dates and locations for the product launch events?",
+                     "Can I bring a guest with me to the product launch event?",
+                     "What is the refund policy for the purchased product?",
+                     "What is the refund policy for the purchased product?",
+                     "What is the refund policy for the purchased product?",
+                     "What is the refund policy for the purchased product?", 
                      "What are the dates and locations for the product launch events?",
                      "Can I bring a guest with me to the product launch event?",
                      "Can I purchase the product at the launch event?",
-                     "What is the refund policy for the purchased product?",
-                     "What is the refund policy for the purchased product?",
-                     "What is the refund policy for the purchased product?",
+                     
                   ].map((question, index) => (
                      <div
                         key={index}

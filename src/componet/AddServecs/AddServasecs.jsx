@@ -24,10 +24,14 @@ function AddService() {
             userEmail: user?.email || "Unknown",
             userPhoto: user?.photoURL || "",
          },
+         email: formData.get("email"),
          serviceArea: formData.get("serviceArea"),
          description: formData.get("description"),
          deadline: new Date(formData.get("deadline")),  // Ensure it's a Date object
       };
+
+      
+      
 
    
    
@@ -72,6 +76,22 @@ function AddService() {
                </div>
 
                <div className="mb-4">
+                  <label className="block text-gray-700">Image URL of the Service</label>
+                  <input
+                     defaultValue={user?.email}
+                     readOnly
+                     type="email"
+                     name="email"
+                     className="w-full p-2 border border-gray-300 rounded-md"
+                     placeholder="Enter image URL"
+                     required
+                  />
+               </div>
+
+               
+
+
+               <div className="mb-4">
                   <label className="block text-gray-700">Service Name</label>
                   <select
                      name="serviceName"
@@ -99,6 +119,9 @@ function AddService() {
                   />
                </div>
 
+
+                  
+
                <div className="mb-4">
                   <label className="block text-gray-700">Service Area</label>
                   <select
@@ -124,6 +147,7 @@ function AddService() {
                      placeholder="Service description (max 100 characters)"
                   />
                </div>
+               
 
                <div className="mb-4 flex flex-col gap-2">
                   <label className="text-gray-700">Deadline</label>
