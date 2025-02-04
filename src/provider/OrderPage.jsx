@@ -4,26 +4,27 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../context";
 import Swal from "sweetalert2";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";  // Don't forget to import the CSS for DatePicker
+import "react-datepicker/dist/react-datepicker.css";
 
 function OrderPage() {
    const { user } = useContext(AuthContext);
    const { id } = useParams();
 
    const [datas, setDatas] = useState();
-   const [deadline, setDeadline] = useState(null);  // State to store the selected deadline
+   const [deadline, setDeadline] = useState(null);
+   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
    const navigate = useNavigate();
 
    useEffect(() => {
       axios(`${import.meta.env.VITE_API_URL}/services/${id}`)
-         .then((res) => {
-            setDatas(res.data);
-            console.log(res.data);
-         })
-         .catch((err) => {
-            console.error("Error fetching service:", err);
-         });
+         .then((res) => setDatas(res.data))
+         .catch((err) => console.error("Error fetching service:", err));
    }, [id]);
+
+   useEffect(() => {
+      localStorage.setItem("theme", theme);
+      document.documentElement.classList.toggle("dark", theme === "dark");
+   }, [theme]);
 
    const handleSubmit = (e) => {
       e.preventDefault();
@@ -36,15 +37,12 @@ function OrderPage() {
          price: e.target.price.value,
          serviceArea: e.target.serviceArea.value,
          serviceName: e.target.serviceName.value,
-         deadline: deadline ? deadline.toISOString() : "",  // Include the selected deadline
+         deadline: deadline ? deadline.toISOString() : "",
       };
 
-      console.log("Order Submitted:", orderDetails);
       axios
          .post(`${import.meta.env.VITE_API_URL}/order`, orderDetails)
-         .then((response) => {
-            console.log("Order Placed:", response.data);
-
+         .then(() => {
             Swal.fire({
                title: "Success!",
                text: "Order successfully placed!",
@@ -56,9 +54,7 @@ function OrderPage() {
             navigate("/");
             e.target.reset();
          })
-         .catch((error) => {
-            console.error("Error placing order:", error);
-
+         .catch(() => {
             Swal.fire({
                title: "Error!",
                text: "Failed to place order. Please try again.",
@@ -70,59 +66,51 @@ function OrderPage() {
    };
 
    return (
-      <div className="max-w-lg mx-auto p-4">
+      <div className={`max-w-lg mx-auto p-4 ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}`}>
+         {/* Theme Toggle Button */}
+         <button
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+            className="p-2 mb-4 bg-gray-700 text-white rounded-md"
+         >
+            {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+         </button>
+
          <h2 className="text-2xl font-bold mb-4 text-center">Place Your Order</h2>
          {id && <p className="mb-4 text-center">Order ID: {datas?._id}</p>}
+
          <form onSubmit={handleSubmit}>
             <div className="mb-4">
-               <label htmlFor="name" className="block text-gray-700">Name</label>
-               <input type="text" id="name" name="name" placeholder="Enter your name" className="mt-1 w-full border rounded p-2" required />
+               <label className="block">Name</label>
+               <input type="text" name="name" placeholder="Enter your name" className="mt-1 w-full border rounded p-2" required />
             </div>
 
             <div className="mb-4">
-               <label htmlFor="email" className="block text-gray-700">Email</label>
-               <input type="email" id="email" name="email" defaultValue={user?.email} readOnly className="mt-1 w-full border rounded p-2" required />
-            </div>
-
-            {/* Service Name Field */}
-            <div className="mb-4">
-               <label htmlFor="serviceName" className="block text-gray-700">Service Name</label>
-               <input
-                  type="text"
-                  id="serviceName"
-                  name="serviceName"
-                  value={datas ? datas.serviceName : "Loading..."}
-                  readOnly
-                  className="mt-1 w-full border rounded p-2"
-                  required
-               />
+               <label className="block">Email</label>
+               <input type="email" name="email" defaultValue={user?.email} readOnly className="mt-1 w-full border rounded p-2" required />
             </div>
 
             <div className="mb-4">
-               <label htmlFor="price" className="block text-gray-700">Price</label>
-               <input
-                  type="number"
-                  id="price"
-                  name="price"
-                  value={datas ? datas.price : "Loading..."}
-                  readOnly
-                  className="mt-1 w-full border rounded p-2"
-                  required
-               />
+               <label className="block">Service Name</label>
+               <input type="text" name="serviceName" value={datas?.serviceName || "Loading..."} readOnly className="mt-1 w-full border rounded p-2" required />
             </div>
 
             <div className="mb-4">
-               <label htmlFor="phone" className="block text-gray-700">Phone</label>
-               <input type="text" id="phone" name="phone" placeholder="Enter your phone number" className="mt-1 w-full border rounded p-2" required />
+               <label className="block">Price</label>
+               <input type="number" name="price" value={datas?.price || "Loading..."} readOnly className="mt-1 w-full border rounded p-2" required />
             </div>
 
             <div className="mb-4">
-               <label htmlFor="address" className="block text-gray-700">Address</label>
-               <textarea id="address" name="address" placeholder="Enter your address" className="mt-1 w-full border rounded p-2" required></textarea>
+               <label className="block">Phone</label>
+               <input type="text" name="phone" placeholder="Enter your phone number" className="mt-1 w-full border rounded p-2" required />
             </div>
 
             <div className="mb-4">
-               <label className="block text-gray-700">Service Area</label>
+               <label className="block">Address</label>
+               <textarea name="address" placeholder="Enter your address" className="mt-1 w-full border rounded p-2" required></textarea>
+            </div>
+
+            <div className="mb-4">
+               <label className="block">Service Area</label>
                <select name="serviceArea" className="w-full p-2 border border-gray-300 rounded-md" required>
                   <option value="">Select Service Area</option>
                   <option value="Dhaka">Dhaka</option>
@@ -131,14 +119,14 @@ function OrderPage() {
                   <option value="Rajshahi">Rajshahi</option>
                </select>
             </div>
-            <div className="mb-4 flex flex-col gap-2">
-               <label className="text-gray-700">Deadline</label>
+
+            <div className="mb-4">
+               <label className="block">Deadline</label>
                <DatePicker
-                  className="shadow-xl shadow-blue-200 text-red-500 text-sm tracking-wfont-medium outline-none border border-blue-600 active:shadow-innerrounded-md"
-                  name="deadline"
+                  className="w-full p-2 border border-blue-600 rounded-md"
                   dateFormat="MMMM d, yyyy"
-                  selected={deadline}  // Set the selected date
-                  onChange={(date) => setDeadline(date)}  // Update state when a date is selected
+                  selected={deadline}
+                  onChange={(date) => setDeadline(date)}
                   required
                />
             </div>
