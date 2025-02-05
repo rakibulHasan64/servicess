@@ -26,12 +26,56 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route index element={<AllLayout />} />
           <Route path="AllService" element={<AllServesPage />} />
-          <Route path="ManageService" element={<AllManeage />} />
-          <Route path="Update/:id" element={<Update />} />
-          <Route path="singlePage/:id" element={<SingleDetailsPage />} />
-          <Route path="mypost" element={<MyPostServices />} />   
-          <Route path="order/:id" element={<OrderPage />} />   
-          <Route path="signup" element={<OrderDetails />} />   
+          {/* <Route path="ManageService" element={<AllManeage />} />
+          <Route path="Update/:id" element={<Update />} /> */}
+          {/* <Route path="singlePage/:id" element={<SingleDetailsPage />} /> */}
+          {/* <Route path="mypost" element={<MyPostServices />} />    */}
+          {/* <Route path="order/:id" element={<OrderPage />} />    */}
+
+
+          <Route
+            path="ManageService"
+            element={
+              <PrivateRoute>
+                <AllManeage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="Update/:id"
+            element={
+              <PrivateRoute>
+                <Update />
+              </PrivateRoute>
+            }
+          />
+          <Route path="signup" element={<OrderDetails />} />  
+          
+          <Route
+            path="singlePage/:id"
+            element={
+              <PrivateRoute>
+                <SingleDetailsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="mypost"
+            element={
+              <PrivateRoute>
+                <MyPostServices />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="order/:id"
+            element={
+              <PrivateRoute>
+                <OrderPage />
+              </PrivateRoute>
+            }
+          />
+  
 
           <Route path="ServicesTo-Do" element={<MyRequst />} />   
 

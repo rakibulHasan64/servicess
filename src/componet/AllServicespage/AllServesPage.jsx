@@ -11,7 +11,7 @@ function AllServesPage() {
          
          <Helmet>
             <meta charSet="utf-8" />
-            <title>All | Servics</title>
+            <title>All | 💛💛💚💙Servics</title>
 
          </Helmet>
          <AllServicsPageCard />

@@ -12,7 +12,7 @@ function AllServicesPageCard() {
    const { data: services = [], isLoading, refetch } = useQuery({
       queryKey: ["services", filter],
       queryFn: async () => {
-         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-services`, {
+         const { data } = await axios.get(`https://servisces-server.onrender.com/all-services`, {
             params: { filter }
          });
          return data;
